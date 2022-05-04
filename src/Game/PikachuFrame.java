@@ -79,7 +79,8 @@ public class PikachuFrame extends JFrame implements ActionListener, Runnable {
 		panelControl.add(btnNewGame = createButton("New Game"),
 				BorderLayout.PAGE_END);
 
-		Icon icon = new ImageIcon(getClass().getResource("/Icon/pokemon.png"));
+		
+		Icon icon = new ImageIcon(System.getProperty("user.dir") + "/resources/Assets/pokemon.png");
 
 		// use panel set Layout BorderLayout to panel control in top
 		JPanel panel = new JPanel(new BorderLayout());

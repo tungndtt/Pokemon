@@ -1,6 +1,7 @@
 package Game;
 
 import java.awt.Point;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -13,15 +14,25 @@ public class Algorithm {
 	private int col;
 	private int notBarrier = 0;
 	private int[][] matrix;
+	private int imgNumber;
 
 	public Algorithm(int row, int col) {
 		this.row = row;
 		this.col = col;
 		System.out.println(row + "," + col);
-		// readFile();
+		
+		File directory = new File(System.getProperty("user.dir") + "/resources/Assets/");
+		for (File file : directory.listFiles()) {
+            if (file.isFile()) {
+            	String filename = file.getName();
+                if(filename.startsWith("icon") && filename.endsWith(".png")) {
+                	imgNumber++;
+                }
+            }
+        }
+		
 		createMatrix();
 		showMatrix();
-		
 	}
 
 	// show matrix
@@ -114,9 +125,11 @@ public class Algorithm {
 					&& checkLineY(x, pMaxX.x, pMaxX.y)) {
 
 				System.out.println("Rect y");
-				System.out.println("(" + pMinX.x + "," + pMinX.y + ") -> (" + x
-						+ "," + pMinX.y + ") -> (" + x + "," + pMaxX.y
-						+ ") -> (" + pMaxX.x + "," + pMaxX.y + ")");
+				System.out.println("(" + pMinX.x + "," + pMinX.y 
+					+ ") -> (" + x + "," + pMinX.y 
+					+ ") -> (" + x + "," + pMaxX.y
+					+ ") -> (" + pMaxX.x + "," + pMaxX.y + 
+				")");
 				return x;
 			}
 		}
@@ -263,7 +276,6 @@ public class Algorithm {
 
 		Random rand = new Random();
 		// int imgNumber = row * col / 4;
-		int imgNumber = 37;
 		int maxDouble = imgNumber / 4;
 		int imgArr[] = new int[imgNumber + 1];
 		ArrayList<Point> listPoint = new ArrayList<Point>();

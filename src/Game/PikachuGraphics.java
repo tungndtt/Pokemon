@@ -4,8 +4,8 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.border.*;
-
 import java.util.Date;
+
 
 /**
  * Render the map matrix and handle events
@@ -35,13 +35,11 @@ public class PikachuGraphics extends JPanel implements ActionListener {
 
 		setLayout(new GridLayout(row, col, bound, bound));
 		setBackground(backGroundColor);
-		setPreferredSize(new Dimension((size + bound) * col, (size + bound)
-				* row));
+		setPreferredSize(new Dimension((size + bound) * col, (size + bound) * row));
 		setBorder(new EmptyBorder(10, 10, 10, 10));
 		setAlignmentY(JPanel.CENTER_ALIGNMENT);
 
 		newGame();
-
 	}
 
 	public void newGame() {
@@ -64,10 +62,10 @@ public class PikachuGraphics extends JPanel implements ActionListener {
 
 	private Icon getIcon(int index) {
 		int width = 48, height = 48;
-		Image image = new ImageIcon(getClass().getResource("/Icon/icon" + index + ".jpg")).getImage();
+		Image image;
+		image = new ImageIcon(System.getProperty("user.dir") + "/resources/Assets/icon" + index + ".png").getImage();
 		Icon icon = new ImageIcon(image.getScaledInstance(width, height, Image.SCALE_SMOOTH));
 		return icon;
-
 	}
 
 	private JButton createButton(String action) {
@@ -111,8 +109,7 @@ public class PikachuGraphics extends JPanel implements ActionListener {
 			btn[p1.x][p1.y].setBorder(new LineBorder(Color.red));
 		} else {
 			p2 = new Point(x, y);
-			System.out.println("(" + p1.x + "," + p1.y + ")" + " --> " + "("
-					+ p2.x + "," + p2.y + ")");
+			System.out.println("(" + p1.x + "," + p1.y + ")" + " --> " + "(" + p2.x + "," + p2.y + ")");
 			line = algorithm.checkTwoPoint(p1, p2);
 			if (line != null) {
 				System.out.println("line != null");

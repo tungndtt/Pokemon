@@ -1,0 +1,12 @@
+{
+	"name": "fetching-assets-script",
+	"version": "0.0.1",
+	"author": {
+		"name": "Tung Doan",
+		"email": "tungndtt224@gmail.com",
+		"url": "https://tungndtt.github.io/personal_portfolie/"
+	},
+	"dependencies": {
+		"https": "^1.0.0"
+	}
+}
